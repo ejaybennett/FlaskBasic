@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Hello{% endblock %}
+{% block container %}
+<div class="top-pad">
+
+    <div class="well">
+        <h2>
+            <h1 class="rainbow-text">Hello {{name}}</h1>
+            <h1 class="rainbow-text">Welcome to my Website! This is made in HTML, a brand NEW language!</h1>
+            <h1>The year is 2006, the internet is still fun!</h1>
+            <h1>Here are some fun websites to explore:</h1>
+            {% for link in links %}
+            <a href="{{link.link}}"> {{link.name}}</a> from {{link.get_username()}}
+            <form action="delete" method="POST"> <input type="hidden" name="link_id" value="{{link.id}}" /> <input
+                    type="submit" value="Delete" />
+            </form>
+            <form action="edit" method="POST">
+                <input type="hidden" name="link_id" value="{{link.id}}" />
+                {{form.name.label}}{{form.name()}}
+                {{form.link.label}}{{form.link()}}
+                <input type="submit" value="Edit" />
+            </form> <br>
+            {% endfor %}
+            <br>
+            Add a Link!
+            <form action="/add_link" method="POST">
+                {{form.name.label}}{{form.name()}}
+                {{form.link.label}}{{form.link()}}
+                <input type="submit" value="Add your link!" />
+            </form>
+        </h2>
+
+    </div>
+</div>
+{% endblock %}

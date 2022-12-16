@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block container %}
+<div class="top-pad">
+
+    <div class="well">
+        <h2>
+            <form action="/login" method="POST">
+                Login Here! <br>
+                {{form.username.label}}{{form.username()}}
+                {{form.password.label}}{{form.password()}}
+                <input type="submit" name="Login" />
+            </form>
+        </h2>
+    </div>
+</div>
+{% endblock %}

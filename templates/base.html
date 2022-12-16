@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<title>
+    {% block title %}{% endblock %}
+</title>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css' ) }}">
+</head>
+<div class="container">
+    <img src="{{url_for('static', filename='firebar.gif')}}" alt="funny GIF" width="100%">
+    {% block container %}{% endblock %}
+    <img src="{{url_for('static', filename='firework.gif')}}" alt="funny GIF" width="100%">
+</div>
+
+<body>
